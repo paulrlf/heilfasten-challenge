@@ -205,6 +205,28 @@ body::after{
   font-size:13px;color:var(--ink3);
 }
 
+/* SOFORT-BONUS BLOCK (Lead-Magnet in der Gruppe) */
+.gift-section{max-width:660px;margin:0 auto;padding:14px 24px 0;}
+.gift-card{
+  background:linear-gradient(180deg,var(--card2),var(--card));
+  border:1px solid var(--aqua-border);
+  border-radius:18px;padding:24px 24px;
+  box-shadow:var(--shadow-md);
+  animation:fadeDown .7s .34s ease both;
+}
+.gift-badge{
+  display:inline-block;background:var(--aqua-tint);border:1px solid var(--aqua-border);
+  color:var(--aqua-deep);font-size:12.5px;font-weight:800;letter-spacing:.4px;
+  padding:6px 14px;border-radius:100px;margin-bottom:14px;
+}
+.gift-lead{font-size:15.5px;color:var(--ink2);line-height:1.7;margin-bottom:16px;}
+.gift-lead strong{color:var(--ink);font-weight:800;}
+.gift-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.gift-list li{display:flex;gap:11px;align-items:flex-start;font-size:13.8px;color:var(--ink2);line-height:1.45;}
+.gift-list li .ic{font-size:20px;flex-shrink:0;line-height:1.1;}
+.gift-list li strong{color:var(--ink);font-weight:800;font-size:14.5px;}
+@media(max-width:560px){.gift-list{grid-template-columns:1fr;}}
+
 /* STEPS SECTION */
 .steps-section{max-width:660px;margin:0 auto;padding:40px 24px 20px;}
 .steps-intro{text-align:center;margin-bottom:26px;}
@@ -418,7 +440,21 @@ body::after{
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.557 4.118 1.532 5.843L.054 23.486a.5.5 0 0 0 .609.61l5.735-1.503A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.5-5.241-1.377l-.376-.215-3.905 1.023 1.013-3.8-.232-.387A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         WhatsApp-Community beitreten
       </a>
-      <div class="hero-cta-note">Kostenlos, jederzeit wieder verlassbar. Nur hier bekommst du alle Infos zur Challenge.</div>
+      <div class="hero-cta-note">Inklusive deinem <strong style="color:var(--ink);">3-Tage-Mini-Detox</strong> als Sofort-Bonus. Kostenlos, jederzeit wieder verlassbar.</div>
+    </div>
+  </section>
+
+  <!-- SOFORT-BONUS / LEAD-MAGNET -->
+  <section class="gift-section">
+    <div class="gift-card">
+      <div class="gift-badge">🎁 Dein Sofort-Bonus in der Gruppe</div>
+      <p class="gift-lead">Hier bekommst du Zugang zum <strong>3-Tage-Mini-Detox</strong>, Early-Bird-Infos, Behind-the-Scenes und Vorab-Trainings, bevor wir offiziell öffnen.</p>
+      <ul class="gift-list">
+        <li><span class="ic">🥗</span><div><strong>3-Tage-Mini-Detox</strong><br>Dein Sofort-Geschenk zum Einstieg</div></li>
+        <li><span class="ic">⏰</span><div><strong>Early-Bird-Infos</strong><br>Alles zuerst, bevor es offiziell losgeht</div></li>
+        <li><span class="ic">🎬</span><div><strong>Behind-the-Scenes</strong><br>Exklusive Einblicke direkt von mir</div></li>
+        <li><span class="ic">🎓</span><div><strong>Vorab-Trainings</strong><br>Wissen, das dich optimal vorbereitet</div></li>
+      </ul>
     </div>
   </section>
 
@@ -437,9 +473,9 @@ body::after{
       <div class="step-body">
         <h3 class="step-heading">Tritt der WhatsApp-Community bei</h3>
         <p class="step-desc">
-          Das ist dein wichtigster Schritt. In der Gruppe teile ich alle Vorbereitungs-Infos,
-          erinnere dich an die Live-Calls und beantworte deine Fragen. <strong>Wer nicht drin ist,
-          verpasst den Start.</strong> Also: jetzt beitreten, dann ist alles Weitere ganz einfach.
+          Das ist dein wichtigster Schritt. Dort wartet direkt dein <strong>3-Tage-Mini-Detox</strong> auf dich,
+          und ich teile alle Vorbereitungs-Infos, erinnere dich an die Live-Calls und beantworte deine Fragen.
+          <strong>Wer nicht drin ist, verpasst den Start.</strong> Also: jetzt beitreten, dann ist alles Weitere ganz einfach.
         </p>
         <a href="WHATSAPP_LINK_HIER" class="wa-btn-block" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.557 4.118 1.532 5.843L.054 23.486a.5.5 0 0 0 .609.61l5.735-1.503A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.5-5.241-1.377l-.376-.215-3.905 1.023 1.013-3.8-.232-.387A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
