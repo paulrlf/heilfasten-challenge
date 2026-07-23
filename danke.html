@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dein Platz ist gesichert · 7-Tage Wasserfasten-Challenge</title>
+
+<!--
+  ====================================================================
+  WASSERFASTEN-CHALLENGE · DANKE-/COMMUNITY-SEITE (Step 3 von 3)
+  Victor Molina Megias · Holistic Health Solutions LLC
+  ====================================================================
+  Funnel: Opt-in  ->  Umfrage  ->  DIESE SEITE (Danke / WhatsApp)
+
+  NOCH ANZUPASSEN, bevor die Seite live geht:
+
+  1) WHATSAPP  -> Suche "WHATSAPP_LINK_HIER" und trage den echten
+                  Einladungslink zur WhatsApp-Community / -Gruppe ein.
+                  (Kommt an zwei Stellen vor: Hero-Button + Schritt 1.)
+
+  2) KALENDER  -> Die Termine im Google-Calendar-Link und im ICS-Block
+                  sind Ganztags-Eintraege. Die genaue Uhrzeit des
+                  Vorbereitungs-Calls kommt per E-Mail / WhatsApp, daher
+                  bewusst OHNE feste Uhrzeit. Datum bei Bedarf anpassen.
+
+  3) AGB       -> "AGB_URL_HIER" durch die echte AGB-URL ersetzen.
+
+  Bewusst KEIN Dankesvideo. Hauptziel dieser Seite: Beitritt zur
+  WhatsApp-Community. Design identisch zu Opt-in + Umfrage:
+  Font Mulish, Wasser-Teal-Akzent, helles Papier.
+  ====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  /* Basis / Papier */
+  --bg:#f8f6f0;
+  --bg-soft:#f1efe7;
+  --card:#ffffff;
+  --card2:#fbfaf6;
+
+  /* Wasser / Akzent */
+  --aqua:#4a7c50;
+  --aqua-deep:#31543a;
+  --aqua-bright:#6a9b5f;
+  --aqua-tint:rgba(74,124,80,0.08);
+  --aqua-tint2:rgba(74,124,80,0.14);
+  --aqua-border:rgba(74,124,80,0.20);
+
+  /* Text */
+  --ink:#20291d;
+  --ink2:#55604f;
+  --ink3:#8f978a;
+
+  /* Linien / Schatten */
+  --line:rgba(30,39,26,0.10);
+  --shadow-sm:0 2px 10px rgba(30,39,26,0.05);
+  --shadow-md:0 14px 40px rgba(30,39,26,0.08);
+  --shadow-lg:0 24px 70px rgba(49,84,58,0.14);
+
+  --font:'Mulish',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* Sanfte Wasser-Glows im Hintergrund */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% -5%, rgba(74,124,80,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 40% at 12% 70%, rgba(106,155,95,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 90% 45%, rgba(74,124,80,0.05) 0%, transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.page{position:relative;z-index:1;}
+
+/* TOP BAR (jetzt positiv: Platz gesichert) */
+.top-bar{
+  text-align:center;
+  padding:10px 20px;
+  background:var(--aqua-deep);
+  color:#eef4ea;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.top-bar strong{color:#fff;}
+
+/* PROGRESS BAR (jetzt 100%: geschafft) */
+.progress-section{padding:22px 24px 0;}
+.progress-wrap{max-width:560px;margin:0 auto;}
+.progress-track{
+  width:100%;
+  height:8px;
+  background:var(--card);
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--aqua-border);
+  box-shadow:var(--shadow-sm);
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg, var(--aqua-bright), var(--aqua), var(--aqua-deep));
+  border-radius:20px;
+  transition:width 1.8s cubic-bezier(0.4,0,0.2,1);
+}
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  margin-top:9px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+.progress-label .step{color:var(--ink3);text-transform:uppercase;letter-spacing:1.5px;}
+.progress-label .pct{color:var(--aqua-deep);font-variant-numeric:tabular-nums;}
+
+/* HERO */
+.hero{
+  max-width:660px;
+  margin:0 auto;
+  padding:36px 24px 8px;
+  text-align:center;
+}
+.hero-check{
+  width:64px;height:64px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:linear-gradient(135deg, var(--aqua-bright), var(--aqua-deep));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 30px rgba(49,84,58,0.28);
+  animation:popIn .6s .05s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.hero-check svg{color:#fff;}
+.eyebrow{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--aqua);
+  margin-bottom:16px;
+  animation:fadeDown .7s .12s ease both;
+}
+.hero h1{
+  font-weight:800;
+  font-size:clamp(30px,5.6vw,50px);
+  line-height:1.08;
+  letter-spacing:-1.1px;
+  color:var(--ink);
+  margin-bottom:18px;
+  animation:fadeDown .7s .18s ease both;
+}
+.hero h1 .accent{color:var(--aqua-deep);}
+.hero h1 .light{font-weight:400;}
+.hero-sub{
+  font-size:clamp(16px,2.3vw,18px);
+  color:var(--ink2);
+  line-height:1.72;
+  max-width:520px;
+  margin:0 auto 22px;
+  font-weight:400;
+  animation:fadeDown .7s .24s ease both;
+}
+.hero-sub strong{color:var(--ink);font-weight:700;}
+
+/* Primaerer WhatsApp-Button im Hero (Hauptziel der Seite) */
+.hero-cta-wrap{animation:fadeDown .7s .30s ease both;}
+.wa-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:17px 30px;
+  background:linear-gradient(135deg,#25d366,#1ebe5a);
+  border:none;border-radius:14px;
+  color:#08331b;
+  font-family:var(--font);font-size:16px;font-weight:800;letter-spacing:.2px;
+  text-decoration:none;cursor:pointer;
+  box-shadow:0 12px 34px rgba(37,211,102,0.30);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.wa-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 44px rgba(37,211,102,0.40);
+  filter:brightness(1.03);
+}
+.wa-btn svg{flex-shrink:0;}
+.hero-cta-note{
+  margin-top:12px;
+  font-size:13px;color:var(--ink3);
+}
+
+/* STEPS SECTION */
+.steps-section{max-width:660px;margin:0 auto;padding:40px 24px 20px;}
+.steps-intro{text-align:center;margin-bottom:26px;}
+.steps-label{
+  font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--aqua);margin-bottom:12px;
+}
+.steps-title{
+  font-weight:800;
+  font-size:clamp(22px,3.6vw,32px);
+  line-height:1.14;
+  letter-spacing:-0.6px;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.steps-title .accent{color:var(--aqua-deep);}
+.steps-title .light{font-weight:400;}
+.steps-intro p{font-size:14px;color:var(--ink3);font-weight:600;letter-spacing:.3px;}
+
+/* STEP CARDS */
+.step-card{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:24px 22px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+  margin-bottom:14px;
+  opacity:0;transform:translateY(22px);
+  transition:opacity .6s ease,transform .6s ease,border-color .25s,box-shadow .25s;
+}
+.step-card.visible{opacity:1;transform:translateY(0);}
+.step-card:hover{border-color:var(--aqua-border);box-shadow:var(--shadow-md);}
+.step-card.primary{
+  border-color:var(--aqua-border);
+  background:linear-gradient(180deg, var(--card), var(--card2));
+  box-shadow:var(--shadow-md);
+}
+
+.step-num{
+  width:40px;height:40px;min-width:40px;
+  background:linear-gradient(135deg, var(--aqua-bright), var(--aqua-deep));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:800;color:#fff;
+  flex-shrink:0;margin-top:2px;
+  box-shadow:0 6px 16px rgba(49,84,58,0.22);
+}
+
+.step-body{flex:1;display:flex;flex-direction:column;gap:12px;min-width:0;}
+.step-heading{font-size:18px;font-weight:800;color:var(--ink);margin:0;line-height:1.3;letter-spacing:-.3px;}
+.step-desc{font-size:14.5px;color:var(--ink2);line-height:1.7;font-weight:400;margin:0;}
+.step-desc strong{color:var(--ink);font-weight:700;}
+
+.step-note{font-size:12.5px;color:var(--ink3);line-height:1.5;}
+.step-note a{color:var(--aqua-deep);text-decoration:underline;text-underline-offset:2px;font-weight:700;}
+
+/* WhatsApp-Button innerhalb Schritt 1 */
+.wa-btn-block{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;
+  padding:15px 22px;
+  background:linear-gradient(135deg,#25d366,#1ebe5a);
+  border:none;border-radius:12px;
+  color:#08331b;
+  font-family:var(--font);font-size:15px;font-weight:800;
+  text-decoration:none;cursor:pointer;
+  box-shadow:0 8px 24px rgba(37,211,102,0.26);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+.wa-btn-block:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,0.36);filter:brightness(1.03);}
+
+/* Kalender-Buttons (Schritt 2) */
+.cal-buttons{display:flex;flex-direction:column;gap:9px;}
+.cal-btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 18px;
+  border:1px solid var(--aqua-border);
+  border-radius:11px;
+  font-family:var(--font);font-size:13.5px;font-weight:700;
+  color:var(--ink);
+  background:var(--card2);
+  text-decoration:none;cursor:pointer;
+  transition:border-color .2s,background .2s,transform .2s;
+  width:100%;
+}
+.cal-btn:hover{border-color:var(--aqua);background:var(--aqua-tint);transform:translateY(-1px);}
+.cal-btn svg{flex-shrink:0;color:var(--aqua);}
+
+/* Termin-Liste (Schritt 2) */
+.date-list{
+  list-style:none;
+  border:1px solid var(--line);
+  border-radius:11px;
+  overflow:hidden;
+  background:var(--card2);
+}
+.date-list li{
+  display:flex;align-items:center;gap:12px;
+  padding:11px 15px;
+  font-size:13.5px;color:var(--ink2);
+  border-bottom:1px solid var(--line);
+}
+.date-list li:last-child{border-bottom:none;}
+.date-list .d-date{
+  font-weight:800;color:var(--aqua-deep);
+  min-width:74px;font-variant-numeric:tabular-nums;
+}
+.date-list .d-label strong{color:var(--ink);font-weight:700;}
+
+/* Spam-Hinweis (Schritt 3) */
+.spam-hint{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:14px 16px;
+  background:var(--aqua-tint);
+  border:1px solid var(--aqua-border);
+  border-radius:11px;
+}
+.spam-hint svg{color:var(--aqua-deep);flex-shrink:0;margin-top:1px;}
+.spam-hint span{font-size:13px;color:var(--aqua-deep);line-height:1.6;font-weight:600;}
+
+/* SIGNATUR / VICTOR */
+.signoff{
+  max-width:560px;margin:20px auto 0;
+  padding:26px 24px;
+  text-align:center;
+}
+.signoff p{font-size:15.5px;color:var(--ink2);line-height:1.75;margin-bottom:8px;}
+.signoff .name{
+  font-weight:800;color:var(--ink);font-size:16px;
+}
+.signoff .role{font-size:12.5px;color:var(--ink3);letter-spacing:.4px;}
+
+/* GOOGLE REVIEWS BADGE */
+.grev{
+  max-width:520px;margin:12px auto 0;
+  text-align:center;
+  padding:18px 22px;
+  background:var(--card2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+}
+.grev-stars{color:#e0a91b;font-size:19px;letter-spacing:3px;margin-bottom:6px;}
+.grev-text{font-size:14.5px;color:var(--ink2);margin-bottom:10px;}
+.grev-text strong{color:var(--ink);font-weight:800;}
+.grev-link{
+  display:inline-block;font-size:13px;font-weight:700;color:var(--aqua-deep);
+  text-decoration:none;padding:6px 14px;border:1px solid var(--aqua-border);
+  border-radius:100px;transition:border-color .2s;
+}
+.grev-link:hover{border-color:var(--aqua);}
+
+/* FOOTER */
+.footer{
+  border-top:1px solid var(--line);
+  margin-top:40px;
+  padding:28px 24px;text-align:center;
+  font-size:13px;color:var(--ink3);line-height:1.9;
+}
+.footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px;}
+.footer .company{font-weight:700;color:var(--ink2);}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+
+@media(max-width:560px){
+  .hero{padding:30px 20px 6px;}
+  .steps-section{padding:34px 18px 18px;}
+  .step-card{padding:20px 16px;gap:14px;}
+  .step-num{width:34px;height:34px;min-width:34px;font-size:14px;}
+  .date-list .d-date{min-width:64px;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    Geschafft &nbsp;·&nbsp; <strong>Dein Platz auf der Warteliste ist gesichert.</strong>
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-section">
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label">
+        <span class="step">Schritt 3 von 3 · Fertig</span>
+        <span class="pct" id="progressPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-check">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <div class="eyebrow">Willkommen an Bord</div>
+    <h1>Du bist <span class="accent">dabei.</span> <span class="light">Jetzt kommt der wichtigste Schritt.</span></h1>
+    <p class="hero-sub">
+      Schön, dass du da bist. Deine Antworten sind bei mir angekommen und dein Platz ist reserviert.
+      Alles Weitere zur Challenge läuft ab jetzt über <strong>eine einzige Gruppe</strong>.
+      Tritt ihr jetzt bei, damit du nichts verpasst.
+    </p>
+    <div class="hero-cta-wrap">
+      <a href="WHATSAPP_LINK_HIER" class="wa-btn" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.557 4.118 1.532 5.843L.054 23.486a.5.5 0 0 0 .609.61l5.735-1.503A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.5-5.241-1.377l-.376-.215-3.905 1.023 1.013-3.8-.232-.387A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        WhatsApp-Community beitreten
+      </a>
+      <div class="hero-cta-note">Kostenlos, jederzeit wieder verlassbar. Nur hier bekommst du alle Infos zur Challenge.</div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps-section">
+
+    <div class="steps-intro">
+      <div class="steps-label">So geht es weiter</div>
+      <h2 class="steps-title">Deine <span class="accent">nächsten</span> <span class="light">Schritte</span></h2>
+      <p>Damit du am 9. August wirklich startklar bist</p>
+    </div>
+
+    <!-- STEP 1: WhatsApp Community (Hauptaktion) -->
+    <div class="step-card primary" id="step1">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3 class="step-heading">Tritt der WhatsApp-Community bei</h3>
+        <p class="step-desc">
+          Das ist dein wichtigster Schritt. In der Gruppe teile ich alle Vorbereitungs-Infos,
+          erinnere dich an die Live-Calls und beantworte deine Fragen. <strong>Wer nicht drin ist,
+          verpasst den Start.</strong> Also: jetzt beitreten, dann ist alles Weitere ganz einfach.
+        </p>
+        <a href="WHATSAPP_LINK_HIER" class="wa-btn-block" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.557 4.118 1.532 5.843L.054 23.486a.5.5 0 0 0 .609.61l5.735-1.503A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.5-5.241-1.377l-.376-.215-3.905 1.023 1.013-3.8-.232-.387A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Jetzt beitreten
+        </a>
+        <p class="step-note">Kein WhatsApp? <a href="https://www.whatsapp.com/download" target="_blank" rel="noopener">Hier kostenlos laden</a>. Es dauert nur eine Minute.</p>
+      </div>
+    </div>
+
+    <!-- STEP 2: Termine eintragen -->
+    <div class="step-card" id="step2">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3 class="step-heading">Trag dir die Termine ein</h3>
+        <p class="step-desc">
+          Damit du keinen der Live-Calls verpasst, speicher dir die wichtigsten Tage direkt in deinem Kalender.
+          Die genauen Uhrzeiten schicke ich dir rechtzeitig per E-Mail und in der WhatsApp-Gruppe.
+        </p>
+        <ul class="date-list">
+          <li><span class="d-date">Fr 7.8.</span><span class="d-label"><strong>Anmeldeschluss</strong> für die Challenge</span></li>
+          <li><span class="d-date">Sa 8.8.</span><span class="d-label"><strong>Vorbereitungs-Call</strong> (Live)</span></li>
+          <li><span class="d-date">So 9.8.</span><span class="d-label"><strong>Tag 1:</strong> die Challenge startet</span></li>
+          <li><span class="d-date">Di 11.8.</span><span class="d-label"><strong>Tag 3:</strong> Live-Call</span></li>
+          <li><span class="d-date">So 16.8.</span><span class="d-label"><strong>Abschluss-Call</strong> (Live)</span></li>
+        </ul>
+        <div class="cal-buttons">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=7-Tage+Wasserfasten-Challenge+mit+Victor&dates=20260808/20260817&details=Vorbereitungs-Call+am+8.8.,+Start+am+9.8.,+Tag+3+Live-Call+am+11.8.,+Abschluss-Call+am+16.8.+Die+genauen+Uhrzeiten+kommen+per+E-Mail+und+in+der+WhatsApp-Gruppe." target="_blank" rel="noopener" class="cal-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9H21"/><path d="M8 2V5M16 2V5"/></svg>
+            In Google Calendar speichern
+          </a>
+          <a href="#" onclick="downloadICS();return false;" class="cal-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9H21"/><path d="M8 2V5M16 2V5"/></svg>
+            Für Apple &amp; Outlook (.ics)
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: E-Mail checken -->
+    <div class="step-card" id="step3">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3 class="step-heading">Schau in deine E-Mails</h3>
+        <p class="step-desc">
+          Du bekommst gleich eine Bestätigungs-Mail von mir mit allen Details zur Challenge.
+          Öffne sie kurz, damit du weißt, dass alles angekommen ist, und du auch dann erreichbar bist,
+          falls du WhatsApp mal nicht dabei hast.
+        </p>
+        <div class="spam-hint">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+          <span>Nicht im Posteingang? Schau kurz im Spam- oder Werbe-Ordner nach und füge meine Adresse zu deinen Kontakten hinzu.</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SIGNATUR -->
+  <div class="signoff">
+    <p>Ich freue mich riesig, dich in der Challenge zu begleiten. Bis gleich in der Gruppe.</p>
+    <div class="name">Victor Molina Megias</div>
+    <div class="role">Zertifizierter Fastenleiter · 13 Jahre Erfahrung · 2.000+ begleitete Menschen</div>
+  </div>
+
+  <!-- GOOGLE REVIEWS BADGE -->
+  <div class="grev">
+    <div class="grev-stars">★★★★★</div>
+    <div class="grev-text">Über <strong>130 Menschen haben mich</strong> auf Google mit 5 Sternen bewertet</div>
+    <a class="grev-link" href="https://www.google.com/maps/place/Online+Heilfasten+%26+Fastenwandern+Spanien%E2%80%93+Fasten+international/@50.44971,11.5135721,6z/data=!3m1!4b1!4m6!3m5!1s0x4797b5d1445b6d9f:0x563c91c0f8770ee8!8m2!3d50.44971!4d11.5135722!16s%2Fg%2F11l6zwr4nq!18m1!1e1" target="_blank" rel="noopener">Auf Google ansehen &rsaquo;</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="company">Holistic Health Solutions LLC</span> · Victor Molina Megias<br>
+    <a href="https://online-heilfastenkur.de/impressum" target="_blank" rel="noopener">Impressum</a> &nbsp;|&nbsp;
+    <a href="https://online-heilfastenkur.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> &nbsp;|&nbsp;
+    <!-- AGB: eigene AGB-URL der Challenge hier eintragen -->
+    <a href="AGB_URL_HIER" target="_blank" rel="noopener">AGB</a><br>
+    © 2026 Holistic Health Solutions LLC. Alle Rechte vorbehalten.
+  </footer>
+
+</div>
+
+<script>
+// PROGRESS-BALKEN auf 100% (Schritt 3 von 3: geschafft)
+(function(){
+  function animateProgress(){
+    var fill = document.getElementById('progressFill');
+    var pct = document.getElementById('progressPct');
+    if(!fill || !pct) return;
+    var target = 100;
+    fill.style.width = target + '%';
+    var current = 0;
+    var duration = 1800;
+    var stepTime = Math.max(duration / target, 12);
+    var counter = setInterval(function(){
+      current++;
+      pct.textContent = current + '%';
+      if(current >= target) clearInterval(counter);
+    }, stepTime);
+  }
+  function init(){ setTimeout(animateProgress, 350); }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+
+// SCROLL-REVEAL der Schritt-Karten
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:0.12});
+  ['step1','step2','step3'].forEach(function(id,i){
+    var el=document.getElementById(id);
+    if(el){ el.style.transitionDelay=(i*0.12)+'s'; obs.observe(el); }
+  });
+})();
+
+// ICS-DOWNLOAD (Apple Calendar / Outlook) - Ganztags-Termine, Uhrzeiten kommen per Mail
+function downloadICS(){
+  function ev(uid,start,end,summary,desc){
+    return [
+      'BEGIN:VEVENT',
+      'UID:'+uid+'@wasserfasten-challenge',
+      'DTSTART;VALUE=DATE:'+start,
+      'DTEND;VALUE=DATE:'+end,
+      'SUMMARY:'+summary,
+      'DESCRIPTION:'+desc,
+      'STATUS:CONFIRMED',
+      'END:VEVENT'
+    ].join('\r\n');
+  }
+  var note='Genaue Uhrzeit kommt per E-Mail und in der WhatsApp-Gruppe.';
+  var ics=[
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Holistic Health Solutions LLC//Wasserfasten-Challenge//DE',
+    'CALSCALE:GREGORIAN',
+    ev('anmeldeschluss','20260807','20260808','Anmeldeschluss Wasserfasten-Challenge','Letzter Tag zur Anmeldung.'),
+    ev('vorbereitung','20260808','20260809','Vorbereitungs-Call Wasserfasten-Challenge','Live-Call zur Vorbereitung. '+note),
+    ev('start','20260809','20260810','Tag 1: Wasserfasten-Challenge startet','Deine Challenge beginnt. '+note),
+    ev('tag3','20260811','20260812','Tag 3: Live-Call Wasserfasten-Challenge','Live-Call an Tag 3. '+note),
+    ev('abschluss','20260816','20260817','Abschluss-Call Wasserfasten-Challenge','Gemeinsamer Abschluss-Call am Sonntag. '+note),
+    'END:VCALENDAR'
+  ].join('\r\n');
+  var blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='Wasserfasten-Challenge-Termine.ics';
+  document.body.appendChild(a);a.click();
+  document.body.removeChild(a);URL.revokeObjectURL(a.href);
+}
+</script>
+
+</body>
+</html>

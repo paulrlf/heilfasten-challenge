@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fast geschafft · 7-Tage Wasserfasten-Challenge</title>
+
+<!--
+  ====================================================================
+  WASSERFASTEN-CHALLENGE · MARKET-RESEARCH / UMFRAGE-SEITE (Step 2)
+  Victor Molina Megias · Holistic Health Solutions LLC
+  ====================================================================
+  Funnel: Opt-in  ->  DIESE SEITE (Umfrage)  ->  WhatsApp-Community-Page
+
+  NOCH ANZUPASSEN, bevor die Seite live geht:
+
+  1) TYPEFORM  -> Suche "TYPEFORM_ID_HIER" und trage die echte
+                 Typeform-Form-ID ein (data-tf-live="...").
+                 Die Weiterleitung auf die WhatsApp-Community-Page wird
+                 DIREKT IN TYPEFORM eingestellt ("Endscreen -> Redirect
+                 to URL"). So landen die Leute nach der letzten Frage
+                 automatisch auf der noch zu bauenden Seite 3.
+
+  Design-Basis identisch zur Opt-in-Landingpage:
+  Font Mulish, Wasser-Teal-Akzent, helles Papier.
+  ====================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  /* Basis / Papier */
+  --bg:#f8f6f0;
+  --bg-soft:#f1efe7;
+  --card:#ffffff;
+  --card2:#fbfaf6;
+
+  /* Wasser / Akzent */
+  --aqua:#4a7c50;
+  --aqua-deep:#31543a;
+  --aqua-bright:#6a9b5f;
+  --aqua-tint:rgba(74,124,80,0.08);
+  --aqua-tint2:rgba(74,124,80,0.14);
+  --aqua-border:rgba(74,124,80,0.20);
+
+  /* Text */
+  --ink:#20291d;
+  --ink2:#55604f;
+  --ink3:#8f978a;
+
+  /* Linien / Schatten */
+  --line:rgba(30,39,26,0.10);
+  --shadow-sm:0 2px 10px rgba(30,39,26,0.05);
+  --shadow-md:0 14px 40px rgba(30,39,26,0.08);
+  --shadow-lg:0 24px 70px rgba(49,84,58,0.14);
+
+  --font:'Mulish',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* Sanfte Wasser-Glows im Hintergrund */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% -5%, rgba(74,124,80,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 40% at 12% 70%, rgba(106,155,95,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 90% 45%, rgba(74,124,80,0.05) 0%, transparent 55%);
+  pointer-events:none;z-index:0;
+}
+.page{position:relative;z-index:1;}
+
+/* TOP BAR (Loss Aversion: Platz noch nicht gesichert) */
+.top-bar{
+  text-align:center;
+  padding:10px 20px;
+  background:var(--aqua-deep);
+  color:#eef4ea;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.top-bar strong{color:#fff;}
+
+/* PROGRESS BAR (Goal-Gradient / Zeigarnik) */
+.progress-section{padding:22px 24px 0;}
+.progress-wrap{max-width:560px;margin:0 auto;}
+.progress-track{
+  width:100%;
+  height:8px;
+  background:var(--card);
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--aqua-border);
+  box-shadow:var(--shadow-sm);
+}
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg, var(--aqua-bright), var(--aqua), var(--aqua-deep));
+  border-radius:20px;
+  transition:width 1.8s cubic-bezier(0.4,0,0.2,1);
+}
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  margin-top:9px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+.progress-label .step{color:var(--ink3);text-transform:uppercase;letter-spacing:1.5px;}
+.progress-label .pct{color:var(--aqua-deep);font-variant-numeric:tabular-nums;}
+
+/* HERO */
+.hero{
+  max-width:660px;
+  margin:0 auto;
+  padding:34px 24px 8px;
+  text-align:center;
+}
+.eyebrow{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--aqua);
+  margin-bottom:16px;
+  animation:fadeDown .7s .05s ease both;
+}
+.hero h1{
+  font-weight:800;
+  font-size:clamp(30px,5.6vw,50px);
+  line-height:1.08;
+  letter-spacing:-1.1px;
+  color:var(--ink);
+  margin-bottom:18px;
+  animation:fadeDown .7s .12s ease both;
+}
+.hero h1 .accent{color:var(--aqua-deep);}
+.hero h1 .light{font-weight:400;}
+.hero-sub{
+  font-size:clamp(16px,2.3vw,18px);
+  color:var(--ink2);
+  line-height:1.72;
+  max-width:520px;
+  margin:0 auto 18px;
+  font-weight:400;
+  animation:fadeDown .7s .18s ease both;
+}
+.hero-sub strong{color:var(--ink);font-weight:700;}
+.hero-time{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  background:var(--aqua-tint);
+  border:1px solid var(--aqua-border);
+  border-radius:100px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--aqua-deep);
+  animation:fadeDown .7s .24s ease both;
+}
+.hero-time .pulse{
+  width:8px;height:8px;background:var(--aqua);border-radius:50%;
+  box-shadow:0 0 0 0 rgba(74,124,80,0.5);
+  animation:pulseAnim 2.2s ease-in-out infinite;
+}
+@keyframes pulseAnim{
+  0%{box-shadow:0 0 0 0 rgba(74,124,80,0.45);}
+  70%{box-shadow:0 0 0 9px rgba(74,124,80,0);}
+  100%{box-shadow:0 0 0 0 rgba(74,124,80,0);}
+}
+
+/* SURVEY SECTION */
+.survey-section{max-width:680px;margin:0 auto;padding:34px 24px 20px;}
+.survey-label{
+  text-align:center;
+  font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  color:var(--aqua);margin-bottom:12px;
+}
+.survey-title{
+  font-weight:800;
+  font-size:clamp(22px,3.6vw,32px);
+  line-height:1.14;
+  letter-spacing:-0.6px;
+  text-align:center;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.survey-title .accent{color:var(--aqua-deep);}
+.survey-title .light{font-weight:400;}
+.survey-sub{
+  text-align:center;
+  font-size:15px;
+  color:var(--ink2);
+  max-width:480px;
+  margin:0 auto 26px;
+}
+.survey-frame{
+  padding:2px;
+  background:linear-gradient(135deg, var(--aqua-bright), var(--aqua), var(--aqua-deep));
+  border-radius:16px;
+  box-shadow:var(--shadow-lg);
+}
+.survey-inner{
+  background:var(--card);
+  border-radius:14px;
+  overflow:hidden;
+  min-height:480px;
+}
+.survey-inner [data-tf-live]{min-height:480px;}
+
+/* TRUST BAR */
+.trust-bar{
+  max-width:560px;margin:0 auto;
+  padding:8px 24px 8px;
+  display:flex;align-items:center;justify-content:center;
+  gap:22px;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--ink2);
+}
+.trust-item svg{color:var(--aqua);flex-shrink:0;}
+
+/* GOOGLE REVIEWS BADGE (Authority / Social Proof) */
+.grev{
+  max-width:520px;margin:26px auto 0;
+  text-align:center;
+  padding:18px 22px;
+  background:var(--card2);
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+}
+.grev-stars{color:#e0a91b;font-size:19px;letter-spacing:3px;margin-bottom:6px;}
+.grev-text{font-size:14.5px;color:var(--ink2);margin-bottom:10px;}
+.grev-text strong{color:var(--ink);font-weight:800;}
+.grev-link{
+  display:inline-block;font-size:13px;font-weight:700;color:var(--aqua-deep);
+  text-decoration:none;padding:6px 14px;border:1px solid var(--aqua-border);
+  border-radius:100px;transition:border-color .2s;
+}
+.grev-link:hover{border-color:var(--aqua);}
+
+/* FOOTER */
+.footer{
+  border-top:1px solid var(--line);
+  margin-top:40px;
+  padding:28px 24px;text-align:center;
+  font-size:13px;color:var(--ink3);line-height:1.9;
+}
+.footer a{color:var(--ink2);text-decoration:underline;text-underline-offset:2px;}
+.footer .company{font-weight:700;color:var(--ink2);}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:560px){
+  .trust-bar{gap:14px;}
+  .hero{padding:28px 20px 6px;}
+  .survey-section{padding:28px 18px 18px;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    Fast geschafft &nbsp;·&nbsp; <strong>Dein Platz ist noch nicht gesichert.</strong> &nbsp;·&nbsp; Letzter Schritt
+  </div>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-section">
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label">
+        <span class="step">Schritt 2 von 3</span>
+        <span class="pct" id="progressPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Fast geschafft</div>
+    <h1>Noch <span class="accent">ein letzter</span> <span class="light">Schritt.</span></h1>
+    <p class="hero-sub">
+      Beantworte kurz <strong>4 einfache Fragen</strong>, damit ich die Challenge
+      genau auf dich abstimmen und dir den passenden Rahmen geben kann. Deine
+      Antworten sind der Grund, warum ich deinen Platz so persönlich machen kann.
+    </p>
+    <div class="hero-time"><span class="pulse"></span> Dauert unter 60 Sekunden</div>
+  </section>
+
+  <!-- SURVEY -->
+  <section class="survey-section">
+    <div class="survey-label">Schritt 2 von 3</div>
+    <h2 class="survey-title">Hilf mir, dich <span class="accent">wirklich</span> <span class="light">zu verstehen.</span></h2>
+    <p class="survey-sub">
+      4 kurze Fragen. Damit dein Platz nicht nur reserviert, sondern wirklich auf dich zugeschnitten ist.
+    </p>
+
+    <div class="survey-frame">
+      <div class="survey-inner">
+
+        <!-- ============================================================
+             TYPEFORM: "TYPEFORM_ID_HIER" durch die echte Form-ID ersetzen.
+             Weiterleitung auf die Danke-/Opt-in-Page bitte DIREKT IN
+             TYPEFORM einstellen (Endscreen -> Redirect to URL).
+             ============================================================ -->
+        <div data-tf-live="TYPEFORM_ID_HIER"></div>
+        <script src="//embed.typeform.com/next/embed.js"></script>
+
+      </div>
+    </div>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        4 kurze Fragen
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        Unter 60 Sekunden
+      </div>
+      <div class="trust-item">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>
+        Unverbindlich
+      </div>
+    </div>
+
+    <!-- GOOGLE REVIEWS BADGE -->
+    <div class="grev">
+      <div class="grev-stars">★★★★★</div>
+      <div class="grev-text">Über <strong>130 Menschen haben mich</strong> auf Google mit 5 Sternen bewertet</div>
+      <a class="grev-link" href="https://www.google.com/maps/place/Online+Heilfasten+%26+Fastenwandern+Spanien%E2%80%93+Fasten+international/@50.44971,11.5135721,6z/data=!3m1!4b1!4m6!3m5!1s0x4797b5d1445b6d9f:0x563c91c0f8770ee8!8m2!3d50.44971!4d11.5135722!16s%2Fg%2F11l6zwr4nq!18m1!1e1" target="_blank" rel="noopener">Auf Google ansehen &rsaquo;</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span class="company">Holistic Health Solutions LLC</span> · Victor Molina Megias<br>
+    <a href="https://online-heilfastenkur.de/impressum" target="_blank" rel="noopener">Impressum</a> &nbsp;|&nbsp;
+    <a href="https://online-heilfastenkur.de/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> &nbsp;|&nbsp;
+    <!-- AGB: eigene AGB-URL der Challenge hier eintragen -->
+    <a href="AGB_URL_HIER" target="_blank" rel="noopener">AGB</a><br>
+    © 2026 Holistic Health Solutions LLC. Alle Rechte vorbehalten.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  /* Progress-Balken animiert auf 66% (Goal-Gradient: Schritt 2 von 3) */
+  function animateProgress(){
+    var fill = document.getElementById('progressFill');
+    var pct = document.getElementById('progressPct');
+    if(!fill || !pct) return;
+    var target = 66;
+    fill.style.width = target + '%';
+    var current = 0;
+    var duration = 1800;
+    var stepTime = Math.max(duration / target, 12);
+    var counter = setInterval(function(){
+      current++;
+      pct.textContent = current + '%';
+      if(current >= target) clearInterval(counter);
+    }, stepTime);
+  }
+  function init(){
+    setTimeout(animateProgress, 350);
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>
